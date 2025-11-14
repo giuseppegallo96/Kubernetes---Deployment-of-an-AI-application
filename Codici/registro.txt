@@ -1,0 +1,7 @@
+Da eseguire sul nodo worker
+
+- Avvia il registro locale
+docker start registry
+
+Controllare funzionamento
+- curl http://localhost:5000/v2/_catalog

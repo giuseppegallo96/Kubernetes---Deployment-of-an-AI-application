@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ml-training-job
+spec:
+  template:
+    metadata:
+      name: ml-training
+    spec:
+      containers:
+      - name: ml-training
+        image: localhost:5000/ml-training:latest
+        command: ["python3", "/home/jovyan/train.py"]
+        resources:                                 
+          requests:
+            memory: "4Gi"
+            cpu: "1"
+          limits:
+            memory: "6Gi"
+            cpu: "2"
+      restartPolicy: Never                                
+  backoffLimit: 4           
